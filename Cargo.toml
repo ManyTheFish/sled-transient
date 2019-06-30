@@ -1,0 +1,12 @@
+[package]
+name = "sled-transient"
+version = "0.1.0"
+authors = [
+    "mlegendre <legendre.maxime.isn@gmail.com>",
+    "Kerollmops <renault.cle@gmail.com>"
+]
+edition = "2018"
+
+[dependencies]
+sled = { git = "https://github.com/spacejam/sled.git" }
+# sled = "0.24.1"
