@@ -1,11 +1,11 @@
-use sled_transient::TransientTree;
+use sled_transient::TransientExt;
 use std::time::Duration;
 use sled::Db;
 
 fn main() {
     let db = Db::start_default("hello").unwrap();
 
-    let tree = TransientTree::new(&db, Duration::from_secs(3), b"salut").unwrap();
+    let tree = db.open_ttl_tree(Duration::from_secs(3), b"salut").unwrap();
 
     tree.set("lol", b"kero").unwrap();
     assert!(tree.get("lol").unwrap().is_some());
